@@ -124,7 +124,7 @@ TEST(PrettyWriter, String_STDSTRING) {
 #endif
 
 #if RAPIDJSON_HAS_STDSTRINGVIEW
-TEST(PrettyWriter, String_STDSTRING) {
+TEST(PrettyWriter, String_STDSTRINGVIEW) {
     StringBuffer buffer;
     PrettyWriter<StringBuffer> writer(buffer);
     EXPECT_TRUE(writer.StartArray());

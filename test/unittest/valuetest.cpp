@@ -907,8 +907,11 @@ TEST(Value, String) {
         str_view = str;
         vs0.SetNull().SetString(str_view, allocator);
         EXPECT_TRUE(vs0.IsString());
-        EXPECT_STREQ(vs0.GetString(), str_view.c_str());
         EXPECT_EQ(vs0.GetStringLength(), str_view.size());
+        const char* s0 = vs0.GetString();
+        for (auto i = 0U; i < vs0.GetStringLength(); ++i) {
+            EXPECT_EQ(s0[i], str_view[i]);
+        }
         TestEqual(str_view, vs0);
         TestUnequal(str_view, vs1);
 

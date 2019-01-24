@@ -241,7 +241,7 @@ TEST_F(RapidJson, SIMD_SUFFIX(DocumentParseStdString_MemoryPoolAllocator)) {
 #endif
 
 #if RAPIDJSON_HAS_STDSTRINGVIEW
-TEST_F(RapidJson, SIMD_SUFFIX(DocumentParseStdString_MemoryPoolAllocator)) {
+TEST_F(RapidJson, SIMD_SUFFIX(DocumentParseStdStringView_MemoryPoolAllocator)) {
     const std::string_view s(json_, length_);
     for (size_t i = 0; i < kTrialCount; i++) {
         Document doc;

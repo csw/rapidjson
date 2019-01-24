@@ -49,6 +49,9 @@ endif()
 option(RAPIDJSON_HAS_STDSTRINGVIEW "" OFF)
 if(RAPIDJSON_HAS_STDSTRINGVIEW)
     add_definitions(-DRAPIDJSON_HAS_STDSTRINGVIEW)
+    # presence of std::string_view implies C++17
+    set(CMAKE_CXX_STANDARD 17)
+    set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 endif()
 
 find_program(CCACHE_FOUND ccache)

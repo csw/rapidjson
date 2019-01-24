@@ -132,10 +132,10 @@ public:
     /*!
         \param source A string or URI fragment representation of JSON pointer.
         \param allocator User supplied allocator for this pointer. If no allocator is provided, it creates a self-owned one.
-        \note Requires the definition of the preprocessor symbol \ref RAPIDJSON_HAS_STDSTRING.
+        \note Requires the definition of the preprocessor symbol \ref RAPIDJSON_HAS_STDSTRINGVIEW.
     */
     explicit GenericPointer(std::basic_string_view<Ch> source, Allocator* allocator = 0) : allocator_(allocator), ownAllocator_(), nameBuffer_(), tokens_(), tokenCount_(), parseErrorOffset_(), parseErrorCode_(kPointerParseErrorNone) {
-        Parse(source.c_str(), source.size());
+        Parse(source.data(), source.size());
     }
 #endif
 

@@ -1409,6 +1409,19 @@ public:
         GenericValue v(value, allocator);
         return AddMember(name, v, allocator);
     }
+
+    //! Add a string object as member (name-value pair) to the object.
+    /*! \param name A string value as name of member.
+      \param value character array as value of member.
+      \param allocator    Allocator for reallocating memory. It must be the same one as used before. Commonly use GenericDocument::GetAllocator().
+      \return The value itself for fluent API.
+      \pre  IsObject()
+      \note This overload is needed to disambiguate string literal arguments vs. the std::string_view overload.
+      \note Amortized Constant time complexity.
+    */
+    GenericValue& AddMember(GenericValue& name, const Ch* value, Allocator& allocator) {
+        return AddMember(name, StringRefType(value), allocator);
+    }
 #endif
 
     //! Add any primitive value as member (name-value pair) to the object.
